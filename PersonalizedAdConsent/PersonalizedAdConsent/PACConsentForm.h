@@ -32,7 +32,10 @@ typedef void (^PACDismissCompletion)(NSError *_Nullable error, BOOL userPrefersA
 @property(nonatomic) BOOL shouldOfferAdFree;
 
 /// Unavailable.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnullability"
 - (nullable instancetype)init NS_UNAVAILABLE;
+#pragma clang diagnostic pop
 
 /// Returns an initialized consent form with your application's privacy policy URL. Returns nil if
 /// the privacy policy URL is invalid.
