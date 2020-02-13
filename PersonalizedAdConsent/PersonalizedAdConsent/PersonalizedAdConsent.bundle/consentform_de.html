@@ -739,7 +739,7 @@
       obj.providersEl.appendChild(providersList);
 
       // Hide unavailable options.
-      var hasValidProviderCount = providersLen > 0;
+      var hasValidProviderCount = true;//providersLen > 0;
       if (hasValidProviderCount && document.getElementById('providers_count') != null) {
         document.getElementById('providers_count').innerText = providersLen;
       }
