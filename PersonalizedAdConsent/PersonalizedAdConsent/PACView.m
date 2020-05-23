@@ -209,7 +209,16 @@ static NSDictionary<NSString *, NSString *> *_Nonnull PACQueryParametersFromURL(
     [self loadCompletedWithError:error];
     return;
   }
+ 
   NSURL *URL = [resourceBundle URLForResource:@"consentform" withExtension:@"html"];
+  NSLocale *currentLocale = [NSLocale currentLocale];
+  NSString *localeIdentifier = [[currentLocale.localeIdentifier componentsSeparatedByString:@"_"] firstObject];
+  NSString *fileName = [@"consentform" stringByAppendingFormat:@"_%@", localeIdentifier];
+  NSURL *localeURL = [resourceBundle URLForResource:fileName withExtension:@"html"];
+  if (localeURL) {
+      URL = localeURL;
+  }
+  
   NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:URL];
   [_webView loadRequest:URLRequest];
 }

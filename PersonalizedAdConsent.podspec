@@ -1,24 +1,19 @@
-#
-#  Be sure to run `pod spec lint PersonalizedAdConsent.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
-#
-#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
-#
-
 Pod::Spec.new do |s|
-
   s.name         = "PersonalizedAdConsent"
-  s.version      = "1.0.3"
-  s.summary      = "Supports publishers with meeting EU User Consent Policy for the European Economic Area (EEA)"
-  s.homepage     = "https://github.com/googleads/googleads-consent-sdk-ios"
-  s.license      = { :type => "Apache", :file => "LICENSE" }
-  s.author             = { "Google" => "https://developers.google.com/ads/" }
+  s.version      = "1.0.5"
+  s.summary      = "Google Mobile Ads Consent SDK"
+  s.description  = <<-DESC
+Forked to remove UIWebView and replace with WKWebView are per Apples policy announcement mid-Dec 2019 disallowing apps with this deprecated framework 
+                   DESC
+  s.homepage     = "https://github.com/tmxkevingriesbach/googleads-consent-sdk-ios"
+  s.license      = { :type => "Apache2", :file => "LICENSE" }
+  s.authors            = { "George M. Taylor" => "george@georgetaylor.com", "rampara" => "https://github.com/rampara", "jweisbaum" => "https://github.com/jweisbaum" }
   s.platform     = :ios, "10.0"
-  s.ios.deployment_target = "8.0"
-  s.source       = { :git => "https://github.com/googleads/googleads-consent-sdk-ios.git", :tag => s.version }
-  s.source_files  = "PersonalizedAdConsent/**/*.{h,m}"
+  s.source       = { :git => "https://github.com/tmxkevingriesbach/googleads-consent-sdk-ios.git", :tag => s.version }
+  s.source_files  = "PersonalizedAdConsent/PersonalizedAdConsent/*.{h,m,bundle,html}"
+  s.resource_bundles  = {
+   "PersonalizedAdConsent" => ["PersonalizedAdConsent/PersonalizedAdConsent/PersonalizedAdConsent.bundle/**/*.{html}"]
+}
+  s.framework  = "UIKit"
   s.requires_arc = true
-
 end
-
